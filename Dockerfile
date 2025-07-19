@@ -6,8 +6,8 @@ COPY   package.json .
 
 RUN npm install
 
-copy . .
+COPY   . .
 
 EXPOSE 4000
 
-CMD [ "npm","start" ]
+CMD [ "npm","RUN","start-dev" ]
