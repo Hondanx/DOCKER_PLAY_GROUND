@@ -9,3 +9,7 @@ services:
    - 4000:4000
   volumes:
    - ./src/:/APP/src/ 
+  enviroment:
+   - NODE_MODULE=PROD
+   - PORT=4000
+
