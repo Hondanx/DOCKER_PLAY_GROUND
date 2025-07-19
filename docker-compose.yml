@@ -2,7 +2,9 @@ version: '3.8'
 services:
  nodejs:
   container_name: express
-  build: .
+  build: 
+   context: .
+   dockerfile: Dockerfile 
   ports: 
    - 4000:4000
   volumes:
