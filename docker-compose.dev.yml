@@ -8,9 +8,6 @@ services:
   ports: 
    - 4000:4000
   volumes:
-   - ./src/:/APP/src/ 
-  # environment:
-  #  - NODE_MODULE=PROD
-  #  - PORT=4000
+   - ./src/:/APP/src/:ro
   env_file:
    - ./.env 
