@@ -1,15 +1,7 @@
 version: '3.8'
 services:
  nodejs:
-  container_name: express
-  build: 
-   context: .
-   dockerfile: Dockerfile 
-  ports: 
-   - 4000:4000
   environment:
    - NODE_MODULE=DEV 
   volumes:
    - ./src/:/APP/src/:ro
-  env_file:
-   - ./.env 
