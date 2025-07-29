@@ -1,7 +1,13 @@
 version: '3.8'
 services:
  nodejs:
+  build:
+    context: .
+    dockerfile: Dockerfile
+    args:
+     - NODE_ENV=DEVLOPMENT
   environment:
    - NODE_MODULE=DEV 
   volumes:
    - ./src/:/APP/src/:ro
+  command: npm run start-dev
