@@ -4,8 +4,9 @@ services:
   build:
     context: .
     dockerfile: Dockerfile
-    args:
-     - NODE_ENV=DEVLOPMENT
+    target: development
+    # args:
+    #  - NODE_ENV=DEVLOPMENT
   environment:
    - NODE_MODULE=DEV 
   volumes:
