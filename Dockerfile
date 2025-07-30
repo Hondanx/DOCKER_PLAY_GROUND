@@ -10,6 +10,8 @@ EXPOSE $PORT
 
 FROM base AS development
 
+RUN npm install mongoose
+
 RUN npm install
 
 COPY   . .
@@ -17,6 +19,8 @@ COPY   . .
 CMD ["npm", "run", "start-dev"]
 
 FROM base AS production
+
+RUN npm install mongoose
 
 RUN npm install --only=production
 
