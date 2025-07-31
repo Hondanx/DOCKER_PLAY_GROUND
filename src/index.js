@@ -8,7 +8,12 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 
 // connect to redis
-const redisClient = redis.createClient();
+const REDIS_PORT = 6379;
+const REDIS_HOST = 'redis';
+
+const redisClient = redis.createClient({
+  url: `redis://${REDIS_HOST}:${REDIS_PORT}`
+});
 redisClient.on('error', (err) => console.log('Redis Client Error', err));
 redisClient.on('connect', () => console.log('connected to redis ....'));
 redisClient.connect();
