@@ -12,6 +12,8 @@ FROM base AS development
 
 RUN npm install mongoose
 
+RUN npm install redis
+
 RUN npm install
 
 COPY   . .
@@ -21,6 +23,8 @@ CMD ["npm", "run", "start-dev"]
 FROM base AS production
 
 RUN npm install mongoose
+
+RUN npm install redis
 
 RUN npm install --only=production
 
