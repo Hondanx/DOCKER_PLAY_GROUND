@@ -30,6 +30,14 @@ mongoose
   .then(() => console.log('connected to db ...'))
   .catch((err) => console.log('failed to connect to db: ', err));
 
-app.get('/', (req, res) => res.send('<h1> Hello Tresmerge! hi </h1>'));
+app.get('/', async (req, res) => {
+  await redisClient.set('products', 'products ... ');
+  res.send('<h1>Hello Tresmerge!</h1>');
+});
+
+app.get('/data', async (req, res) => {
+  const products = await redisClient.get('products');
+  res.send(`<h1>Hello Tresmerge!</h1><h2>${products}</h2>`);
+});
 
 app.listen(PORT, () => console.log(`App is up and running on port: ${PORT}`));
