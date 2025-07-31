@@ -25,6 +25,8 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: 1923
     volumes:
         - mongo-data:/data/db
+ 
+
  mongo-express:
     image: mongo-express
     restart: always
@@ -37,6 +39,14 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
       ME_CONFIG_MONGODB_URL: mongodb://root:1923@mongo:27017/
       ME_CONFIG_BASICAUTH: false
-
+ nginx:
+    image: nginx:stable-alpine
+    # volumes:
+    #   - ./templates:/etc/nginx/templates
+    ports:
+      - "8080:80"
+    environment:
+      - NGINX_HOST=foobar.com
+      - NGINX_PORT=80
 volumes:
     mongo-data:
