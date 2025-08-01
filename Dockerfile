@@ -16,6 +16,8 @@ RUN npm install redis
 
 RUN npm install
 
+RUN npm i pg 
+
 COPY   . .
 
 CMD ["npm", "run", "start-dev"]
