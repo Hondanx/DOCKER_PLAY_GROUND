@@ -2,7 +2,7 @@ version: '3.8'
 services:
   nodejs:
     container_name: express
-    image:  hondanx/play_pg
+    image: hondanx/play_pg
     build: 
       context: .
       dockerfile: Dockerfile 
