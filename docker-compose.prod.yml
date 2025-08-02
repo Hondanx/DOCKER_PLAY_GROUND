@@ -9,6 +9,8 @@ services:
     #  - NODE_ENV=PRODUCTION
   environment:
     - NODE_MODULE=PROD
-  volumes:
-   - ./src/:/APP/src/:ro
+  deploy:
+      replicas: 3
+  # volumes:
+  #  - ./src/:/APP/src/:ro
   command: npm start
