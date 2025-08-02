@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   nodejs:
-    # container_name: express
+    container_name: express
     image: hondanx/play_pg
     build: 
       context: .
@@ -65,7 +65,7 @@ services:
     restart: always
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 30 nodejs
+    command: --interval 30 express
 volumes:
   mongo-data:
   postgres-data:
