@@ -1,7 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose'); // Commented MongoDB code below
 const redis = require('redis');
+const os = require('os'); // Import os package for system information 
 const { Client } = require('pg'); // Import pg package
+
 
 // Init app
 const PORT = process.env.PORT || 4000;
@@ -58,7 +60,8 @@ mongoose
 
 app.get('/data', async (req, res) => {
   const products = await redisClient.get('products');
-  res.send(`<h1>Hello Fuckers from AWS!</h1><h2>${products}</h2>`);
+  console.log(`traffic from ${os.hostname()}`);
+  res.send(`<h1>Hello from AWS!</h1><h2>${products}</h2>`);
 });
 
 app.listen(PORT, () => console.log(`App is up and running on port: ${PORT}`));
