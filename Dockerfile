@@ -30,6 +30,8 @@ RUN npm install redis
 
 RUN npm install --only=production
 
+RUN npm i pg
+
 COPY . .
 
 CMD ["npm" , "start"]
